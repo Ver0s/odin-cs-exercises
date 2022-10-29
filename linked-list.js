@@ -12,10 +12,7 @@ const LinkedList = (head = null) => {
 			head = newNode;
 		} else {
 			let lastNode = head;
-			while (lastNode) {
-				if (lastNode.nextNode === null) {
-					break;
-				}
+			while (lastNode.nextNode !== null) {
 				lastNode = lastNode.nextNode;
 			}
 			lastNode.nextNode = newNode;
@@ -27,7 +24,7 @@ const LinkedList = (head = null) => {
 		head = newNode;
 	};
 
-	const size = () => {
+	const getSize = () => {
 		let temp = head;
 		let counter = 0;
 		while (temp) {
@@ -37,6 +34,73 @@ const LinkedList = (head = null) => {
 		return counter;
 	};
 
+	const getHead = () => {
+		return head === null ? null : `( ${head.value} )`;
+	};
+
+	const getTail = () => {
+		if (head === null) {
+			return null;
+		} else {
+			let lastNode = head;
+			while (lastNode.nextNode !== null) {
+				lastNode = lastNode.nextNode;
+			}
+			return `( ${lastNode.value} )`;
+		}
+	};
+
+	const at = (index) => {
+		if (index < 0) return 'Provide an index that is greater or equal to 0';
+		let temp = head;
+		let currentIndex = 0;
+
+		while (temp) {
+			if (currentIndex === index) {
+				return `( ${temp.value} )`;
+			} else {
+				temp = temp.nextNode;
+				currentIndex++;
+			}
+		}
+		return 'Provided index is greater than list size';
+	};
+
+	const pop = () => {
+		let secondToLastNode = head;
+		while (secondToLastNode.nextNode.nextNode !== null) {
+			secondToLastNode = secondToLastNode.nextNode;
+		}
+		secondToLastNode.nextNode = null;
+	};
+
+	const contains = (value) => {
+		let temp = head;
+		while (temp) {
+			if (temp.value === value) {
+				return true;
+			} else {
+				temp = temp.nextNode;
+			}
+		}
+		return false;
+	};
+
+	const find = (value) => {
+		let temp = head;
+		let currentIndex = 0;
+
+		while (temp) {
+			if (temp.value === value) {
+				return currentIndex;
+			} else {
+				temp = temp.nextNode;
+				currentIndex++;
+			}
+		}
+		return null;
+	};
+
 	const toString = () => {
 		let temp = head;
 		let output = '';
@@ -44,24 +108,27 @@ const LinkedList = (head = null) => {
 			output += `( ${temp.value} ) -> `;
 			temp = temp.nextNode;
 		}
-		output += ' null ';
+		output += 'null';
 		return output;
 	};
 
 	return {
 		append,
 		prepend,
-		size,
+		getSize,
+		getHead,
+		getTail,
+		at,
+		pop,
+		contains,
+		find,
 		toString,
 	};
 };
 
 const linkedList = LinkedList();
 linkedList.append(1);
-linkedList.append(1);
-linkedList.append(1);
-linkedList.append(1);
-linkedList.prepend('xd');
+linkedList.append(2);
+linkedList.append(3);
 console.log(linkedList.toString());
-console.log(linkedList.size());
-// console.log(linkedList.size());
+console.log(linkedList.at(2));
