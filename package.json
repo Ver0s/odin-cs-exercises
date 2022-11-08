@@ -1,0 +1,26 @@
+{
+  "name": "odin-cs-exercises",
+  "version": "1.0.0",
+  "description": "",
+  "main": "binary-search-tree.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ver0s/odin-cs-exercises.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ver0s/odin-cs-exercises/issues"
+  },
+  "homepage": "https://github.com/Ver0s/odin-cs-exercises#readme",
+  "devDependencies": {
+    "eslint": "^8.27.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
