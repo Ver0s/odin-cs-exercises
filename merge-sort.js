@@ -13,12 +13,11 @@ function merge(arr1, arr2) {
 function mergeSort(arr) {
 	if (arr.length <= 1) {
 		return arr;
-	} else {
-		const half = Math.floor(arr.length / 2);
-		const leftHalf = arr.slice(0, half);
-		const rightHalf = arr.slice(half);
-		return merge(mergeSort(leftHalf), mergeSort(rightHalf));
 	}
+	const half = Math.floor(arr.length / 2);
+	const leftHalf = arr.slice(0, half);
+	const rightHalf = arr.slice(half);
+	return merge(mergeSort(leftHalf), mergeSort(rightHalf));
 }
 
 console.log(mergeSort([21, 15, 16]));
