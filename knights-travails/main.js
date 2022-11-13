@@ -68,20 +68,17 @@ function bst(start, end, board) {
 		possibleMoves.forEach((move) => {
 			if (board[move[0]][move[1]] === false) {
 				queue.push(
-					new Cell(
-						move[0],
-						move[1],
-						currentNode.dist + 1,
-						currentNode.path.concat([[move[0], move[1]]])
-					)
+					new Cell(move[0], move[1], currentNode.dist + 1, [
+						...currentNode.path,
+						[move[0], move[1]],
+					])
 				);
 			}
 		});
-		// queue.shift();
 	}
 }
-const start = [0, 0];
-const end = [7, 7];
+const start = [3, 3];
+const end = [4, 3];
 const board = createBoard();
 const moves = bst(start, end, board);
 show(moves.dist, moves.path);
